@@ -1,5 +1,6 @@
 import React from "react";
 import { View, Text } from "react-native";
+import { HighlightCard, HighlightCardList } from "../../components/elements";
 
 import { Container } from "../../components/layout";
 import { Header } from "../../components/layout";
@@ -10,6 +11,12 @@ function Dashboard() {
   return (
     <Container>
       <Header />
+
+      <HighlightCardList>
+        <HighlightCard />
+        <HighlightCard />
+        <HighlightCard />
+      </HighlightCardList>
     </Container>
   );
 }

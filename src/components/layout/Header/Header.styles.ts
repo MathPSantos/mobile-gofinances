@@ -1,5 +1,6 @@
 import styled from "styled-components/native";
 import { RFPercentage, RFValue } from "react-native-responsive-fontsize";
+import { getStatusBarHeight } from "react-native-iphone-x-helper";
 
 import { EFeatherIcon } from "../../shared";
 
@@ -10,7 +11,7 @@ export const Container = styled.View`
   background-color: ${({ theme }) => theme.colors.primary};
 
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   flex-direction: row;
 `;
 
@@ -21,6 +22,7 @@ export const UserContainer = styled.View`
   justify-content: space-between;
 
   padding: 0 24px;
+  margin-top: ${getStatusBarHeight() + RFValue(28)}px;
 `;
 
 export const UserInfo = styled.View`

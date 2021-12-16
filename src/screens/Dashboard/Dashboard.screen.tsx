@@ -8,7 +8,6 @@ import {
 
 import { Transaction } from "../../core/@types/Transaction.types";
 
-import { Container } from "../../components/layout";
 import { Header } from "../../components/layout";
 
 import * as D from "./Dashboard.styles";
@@ -55,7 +54,7 @@ const data: DataTransactions[] = [
 
 export function Dashboard() {
   return (
-    <Container>
+    <D.Container>
       <Header />
 
       <HighlightCardList>
@@ -81,6 +80,6 @@ export function Dashboard() {
       <D.Content>
         <Transactions title="Listagem" data={data} />
       </D.Content>
-    </Container>
+    </D.Container>
   );
 }

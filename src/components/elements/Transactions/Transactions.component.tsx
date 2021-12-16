@@ -8,8 +8,6 @@ import { TransactionsCard } from "./TransactionsCard";
 
 import * as T from "./Transactions.styles";
 
-Transactions.Card = TransactionsCard;
-
 export interface Data extends Transaction {
   id: string;
 }
@@ -27,7 +25,7 @@ export function Transactions({ title, data }: TransactionsProps) {
       <T.List
         data={data}
         keyExtractor={(item) => item.id}
-        renderItem={({ item }) => <Transactions.Card data={item} />}
+        renderItem={({ item }) => <TransactionsCard data={item} />}
       />
     </T.Container>
   );

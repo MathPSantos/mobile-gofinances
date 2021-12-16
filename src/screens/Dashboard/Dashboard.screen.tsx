@@ -6,12 +6,54 @@ import {
   Transactions,
 } from "../../components/elements";
 
+import { Transaction } from "../../core/@types/Transaction.types";
+
 import { Container } from "../../components/layout";
 import { Header } from "../../components/layout";
 
 import * as D from "./Dashboard.styles";
 
-function Dashboard() {
+type DataTransactions = Transaction & {
+  id: string;
+};
+
+const data: DataTransactions[] = [
+  {
+    id: "1",
+    type: "income",
+    title: "Desenvolvimento de site",
+    amount: "R$ 12.000,00",
+    category: {
+      icon: "dollar-sign",
+      name: "Vendas",
+    },
+    date: "13/04/2021",
+  },
+  {
+    id: "2",
+    type: "spending",
+    title: "Hamburgueria Peace",
+    amount: "R$ 87,00",
+    category: {
+      icon: "coffee",
+      name: "Alimentação",
+    },
+    date: "13/04/2021",
+  },
+  {
+    id: "3",
+    type: "spending",
+    title: "Aluguel do apartamento",
+    amount: "R$ 1.200,00",
+    category: {
+      icon: "shopping-bag",
+      name: "Casa",
+    },
+    date: "13/04/2021",
+  },
+];
+
+export function Dashboard() {
   return (
     <Container>
       <Header />
@@ -37,10 +79,8 @@ function Dashboard() {
       </HighlightCardList>
 
       <D.Content>
-        <Transactions title="Listagem" />
+        <Transactions title="Listagem" data={data} />
       </D.Content>
     </Container>
   );
 }
-
-export { Dashboard };

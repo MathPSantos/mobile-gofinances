@@ -2,11 +2,16 @@ import { RFValue } from "react-native-responsive-fontsize";
 import styled from "styled-components/native";
 import { EFeatherIcon } from "../../../shared";
 
+interface StyledProps {
+  type: "income" | "spending";
+}
+
 export const Container = styled.View`
   background-color: ${({ theme }) => theme.colors.white};
   border-radius: 6px;
 
   padding: 16px 24px;
+  margin-bottom: 16px;
 `;
 
 export const Title = styled.Text`
@@ -14,9 +19,13 @@ export const Title = styled.Text`
   font-size: ${RFValue(14)}px;
 `;
 
-export const Amount = styled.Text`
+export const Amount = styled.Text<StyledProps>`
+  color: ${({ theme, type }) =>
+    type === "income" ? theme.colors.success : theme.colors.critical};
+
   font-family: ${({ theme }) => theme.fonts.regular};
   font-size: ${RFValue(20)}px;
+
   margin-top: 2px;
 `;
 

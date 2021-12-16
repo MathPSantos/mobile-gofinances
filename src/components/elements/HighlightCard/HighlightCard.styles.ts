@@ -1,10 +1,16 @@
+import styled, { css } from "styled-components/native";
 import { RFValue } from "react-native-responsive-fontsize";
-import styled from "styled-components/native";
 
 import { EFeatherIcon } from "../../shared";
 
-export const Container = styled.View`
-  background-color: ${({ theme }) => theme.colors.white};
+import { HighlightCardVariantTypes } from "./HighlightCard.component";
+interface StyledProps {
+  variant: HighlightCardVariantTypes;
+}
+
+export const Container = styled.View<StyledProps>`
+  background-color: ${({ theme, variant }) =>
+    variant === "total" ? theme.colors.secondary : theme.colors.white};
 
   width: ${RFValue(300)}px;
   border-radius: 4px;
@@ -20,31 +26,52 @@ export const Header = styled.View`
   justify-content: space-between;
 `;
 
-export const Title = styled.Text`
+export const Title = styled.Text<StyledProps>`
   font-family: ${({ theme }) => theme.fonts.regular};
   font-size: ${RFValue(14)}px;
 
-  color: ${({ theme }) => theme.colors.black};
+  color: ${({ theme, variant }) =>
+    variant === "total" ? theme.colors.white : theme.colors.black};
 `;
 
-export const Icon = styled(EFeatherIcon)`
+export const Icon = styled(EFeatherIcon)<StyledProps>`
   font-size: ${RFValue(40)}px;
+
+  ${({ variant }) =>
+    variant === "income" &&
+    css`
+      color: ${({ theme }) => theme.colors.success};
+    `}
+
+  ${({ variant }) =>
+    variant === "spending" &&
+    css`
+      color: ${({ theme }) => theme.colors.critical};
+    `}
+
+  ${({ variant }) =>
+    variant === "total" &&
+    css`
+      color: ${({ theme }) => theme.colors.white};
+    `}
 `;
 
 export const Content = styled.View``;
 
-export const Ammount = styled.Text`
+export const Amount = styled.Text<StyledProps>`
   font-family: ${({ theme }) => theme.fonts.medium};
   font-size: ${RFValue(32)}px;
 
-  color: ${({ theme }) => theme.colors.black};
+  color: ${({ theme, variant }) =>
+    variant === "total" ? theme.colors.white : theme.colors.black};
 
   margin-top: 38px;
 `;
 
-export const LastTransaction = styled.Text`
+export const Description = styled.Text<StyledProps>`
   font-family: ${({ theme }) => theme.fonts.regular};
   font-size: ${RFValue(12)}px;
 
-  color: ${({ theme }) => theme.colors.text};
+  color: ${({ theme, variant }) =>
+    variant === "total" ? theme.colors.white : theme.colors.text};
 `;

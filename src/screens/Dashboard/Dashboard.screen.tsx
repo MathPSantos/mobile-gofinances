@@ -13,9 +13,23 @@ function Dashboard() {
       <Header />
 
       <HighlightCardList>
-        <HighlightCard />
-        <HighlightCard />
-        <HighlightCard />
+        <HighlightCard
+          title="Entradas"
+          amount="R$ 17.400,00"
+          description="Última entrada dia 13 de abril"
+        />
+        <HighlightCard
+          title="Saídas"
+          amount="R$ 1.259,00"
+          description="Última entrada dia 03 de abril"
+          variant="spending"
+        />
+        <HighlightCard
+          title="Total"
+          amount="R$ 16.141,00"
+          description="01 à 06 de abril"
+          variant="total"
+        />
       </HighlightCardList>
     </Container>
   );

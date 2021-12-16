@@ -1,6 +1,10 @@
 import React from "react";
 import { View, Text } from "react-native";
-import { HighlightCard, HighlightCardList } from "../../components/elements";
+import {
+  HighlightCard,
+  HighlightCardList,
+  Transactions,
+} from "../../components/elements";
 
 import { Container } from "../../components/layout";
 import { Header } from "../../components/layout";
@@ -31,6 +35,10 @@ function Dashboard() {
           variant="total"
         />
       </HighlightCardList>
+
+      <D.Content>
+        <Transactions title="Listagem" />
+      </D.Content>
     </Container>
   );
 }
